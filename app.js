@@ -7,9 +7,9 @@ const yargs = require('yargs');
 const notes = require('./notes.js');
 
 const argv = yargs.argv;
-var command = process.argv[2]; // Used to get command line arguments.
+var command = argv._[0]; // Used to get command line arguments.
 console.log(`Command: ${command}`);
-console.log('Yargs:',argv)
+// console.log('Yargs:', argv)
 
 if (command === 'add') {
     notes.addNote(argv.title, argv.body);
