@@ -62,7 +62,3 @@ module.exports = {
   removeNote,
   logNote
 };
-
-// module.exports.add = (a, b) => {
-//     return a + b;
-// };
