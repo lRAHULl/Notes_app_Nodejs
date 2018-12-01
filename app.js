@@ -1,5 +1,3 @@
-console.log("Starting App.JS");
-
 const fs = require("fs"); // File System Module.
 const os = require("os"); // Operating System.
 const yargs = require("yargs");
@@ -21,7 +19,9 @@ if (command === "add") {
     notes.logNote(note);
   }
 } else if (command === "list") {
-  notes.getAll();
+  var allNotes = notes.getAll();
+  console.log(`Printing ${allNotes.length} Notes.`)
+  allNotes.forEach(note => notes.logNote(note));
 } else if (command === "read") {
   var note = notes.findNote(argv.title);
   if (note) {
@@ -33,19 +33,36 @@ if (command === "add") {
 } else if (command === "remove") {
   var removeNote = notes.removeNote(argv.title);
 
-  var message = removeNote
-    ? "Note Removed Successfully!"
-    : "The Note you specified does not exist."; // ternary operator.
+  var message = removeNote ?
+    "Note Removed Successfully!" :
+    "The Note you specified does not exist."; // ternary operator.
   console.log(message);
-
-  //   if (removeNote) {
-  //     console.log("Note Removed Successfully!");
-  //   } else {
-  //     console.log("The Note you specified does not exist.");
-  //   }
 } else {
   console.log("Command not Recognized.");
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//   if (removeNote) {
+//     console.log("Note Removed Successfully!");
+//   } else {
+//     console.log("The Note you specified does not exist.");
+//   }
+
 
 // var user = os.userInfo();
 // console.log(user)

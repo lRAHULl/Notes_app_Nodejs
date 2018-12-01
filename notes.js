@@ -1,7 +1,5 @@
 const fs = require("fs");
 
-console.log("Starting Notes.JS");
-
 var fetchNotes = () => {
   try {
     var notesString = fs.readFileSync("notes-data.json");
@@ -31,7 +29,7 @@ var addNote = (title, body) => {
 }; // If function does not return anything, it returns undefined.
 
 var getAll = () => {
-  console.log("Getting All Notes.");
+  return fetchNotes();
 };
 
 var findNote = title => {
@@ -51,6 +49,7 @@ var removeNote = title => {
 };
 
 var logNote = note => {
+  debugger;
   console.log("---------Note-----------");
   console.log(`Title: ${note.title}`);
   console.log(`Body: ${note.body}`);
